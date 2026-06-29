@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@layer base {
+body {
+@apply bg-slate-50 text-slate-900 transition-colors duration-300 font-sans antialiased overflow-x-hidden;
+}
+body.dark {
+@apply bg-slate-950 text-slate-100;
+}
+}
+@layer utilities {
+/* Glassmorphism Styles */
+.glass-card-light {
+background: rgba(255, 255, 255, 0.45);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.25);
+box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+}
+.glass-card-dark {
+background: rgba(15, 23, 42, 0.55);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid rgba(255, 255, 255, 0.06);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+.glass-nav-light {
+background: rgba(255, 255, 255, 0.6);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.glass-nav-dark {
+background: rgba(15, 23, 42, 0.7);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.gradient-text {
+@apply bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-violet-400 dark:via-indigo-400 dark:to-purple-400;
+}
+.gradient-btn {
+@apply bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all duration-300;
+}
+.gradient-bg {
+background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.08), transparent 40%),
+radial-gradient(circle at bottom left, rgba(79, 70, 229, 0.08), transparent 40%);
+}
+.gradient-bg-dark {
+background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent 50%),
+radial-gradient(circle at bottom left, rgba(79, 70, 229, 0.12), transparent 50%);
+}
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+::-webkit-scrollbar-track {
+@apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+@apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
+}
+/* Page transitions and skeleton animations */
+@keyframes pulse-slow {
+0%, 100% { opacity: 0.6; }
+50% { opacity: 1; }
+}
+.pulse-skeleton {
+animation: pulse-slow 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
